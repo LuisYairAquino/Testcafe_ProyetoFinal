@@ -13,7 +13,8 @@ let data = {
     zipCode: "36602",
     country: "United States",
     mobilePhone: "219892828492",
-    alias : "My Home"
+    alias : "My Home",
+    registeredEmail: 'dummy.nie@mailinator.com'
 }
 
 export {data}
