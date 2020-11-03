@@ -6,11 +6,19 @@ class Page
     {
         //PAGE: MAIN PAGE
         this.lnk_SignIn = Selector('a').withText('Sign in');
+        this.bnr_Women = Selector('#block_top_menu > ul > li:nth-child(1) > a');
+        this.bnr_Dresses = Selector('#block_top_menu > ul > li:nth-child(2) > a');
+        this.bnr_Tshirts = Selector('#block_top_menu > ul > li:nth-child(3) > a');
+        
         
         //PAGE: AUTHENTICATION
         this.msg_CreateAccountError01 = Selector('#create_account_error > ol > li');
         this.txt_email = Selector('#email_create');
         this.btn_CreateAccount = Selector('#SubmitCreate');
+        this.txt_RegisteredEmail = Selector('#email');
+        this.txt_RegisteredPassword = Selector('#passwd');
+        this.btn_SignIn = Selector('#SubmitLogin > span');
+        this.msg_CreateAccountError03 = Selector('#center_column > div.alert.alert-danger > ol > li')
 
         //PAGE: CREATE AN ACCOUNT
         this.msg_CreateAccountError02 = Selector('#center_column > div > p');

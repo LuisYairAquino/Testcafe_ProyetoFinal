@@ -1,9 +1,10 @@
 import page from './POM';
 import { data } from './data';
 
-fixture('Performing Tests over Account Module')
+fixture('Performing Tests for Account Module')
     .page ('http://automationpractice.com');
 
+//TEST 01
 test('Leave Email address empty and click on Create an account, expect an error', async t =>
 {
     await t
@@ -14,7 +15,6 @@ test('Leave Email address empty and click on Create an account, expect an error'
     await t
         //Leave Email address empty and click on 'Create an account' 
         .click(page.btn_CreateAccount)
-
     
     await t
         //Expecting an error message
@@ -23,6 +23,7 @@ test('Leave Email address empty and click on Create an account, expect an error'
         .takeScreenshot()
 });
 
+//TEST 02
 test('Enter an Invalid Email address and click on Create an account, expect an error', async t =>
 {
     await t
@@ -43,7 +44,8 @@ test('Enter an Invalid Email address and click on Create an account, expect an e
         .takeScreenshot()
 });
 
-test('Create an account without filling any requried field, expect multiple error messages', async t =>
+//TEST 03
+test('Create an account without filling any required field, expect multiple error messages', async t =>
 {
     await t
         //Maximizing the Screen
@@ -66,7 +68,7 @@ test('Create an account without filling any requried field, expect multiple erro
         .takeScreenshot()
 });
 
-
+//TEST 04
 test('Successfully create an account', async t =>
 {
     await t
@@ -78,6 +80,7 @@ test('Successfully create an account', async t =>
         //Enter a valid Email address and click on 'Create an account'
         .typeText(page.txt_email, data.email)
         .click(page.btn_CreateAccount)
+        console.log(data.email);
         
     await t 
         //Validate that email is  prefilled and it's editable
@@ -135,4 +138,188 @@ test('Successfully create an account', async t =>
 
         //Sign Out
         .click(page.NavBar_SignOut)
+});
+
+//TEST 05
+test('Try to log into an account, usign invalid values', async t =>
+{
+    await t
+        //Maximizing the Screen
+        .maximizeWindow()
+        .click(page.lnk_SignIn)
+
+    await t
+        //Click Sing In wihout entering Email and Password
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t 
+        //Writing an invalid Email
+        .typeText(page.txt_RegisteredEmail, data.bad_email)
+        .expect(page.txt_RegisteredEmail.value).eql(data.bad_email)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t 
+        //Writing the Email
+        .typeText(page.txt_RegisteredEmail, data.registeredEmail, {replace: true})
+        .expect(page.txt_RegisteredEmail.value).eql(data.registeredEmail)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t
+        //Removing the Email and writting the Password
+        .click(page.txt_RegisteredEmail)
+        .pressKey('ctrl+a delete')
+        .typeText(page.txt_RegisteredPassword, data.password)
+        .expect(page.txt_RegisteredPassword.value).eql(data.password)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t
+        //Writing the Email
+        .typeText(page.txt_RegisteredEmail, data.registeredEmail)
+        .expect(page.txt_RegisteredEmail.value).eql(data.registeredEmail)
+        .click(page.btn_SignIn)
+
+    await t
+        .wait(1000)
+        .takeScreenshot()
+
+        //Check user Name in Navigation Bar
+        .expect(page.NavBar_Username.innerText).eql(data.firstName + ' ' + data.lastName)
+        .expect(page.NavBar_Username.exists).ok()
+
+        //Sign Out
+        .click(page.NavBar_SignOut)
+});
+
+//TEST 06
+test('Trigger the errors on Sign In Page', async t =>
+{
+    await t
+    //Maximizing the Screen
+    .maximizeWindow()
+    .click(page.lnk_SignIn)
+
+    await t
+        //Click Sing In wihout entering Email and Password
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .expect(await page.msg_CreateAccountError01.exists).notOk()
+        .takeScreenshot()
+
+    await t
+        //Leave Email address empty and click on 'Create an account' 
+        .click(page.btn_CreateAccount)
+    
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.exists).ok()
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t 
+        //Writing an invalid Email
+        .typeText(page.txt_RegisteredEmail, data.bad_email)
+        .expect(page.txt_RegisteredEmail.value).eql(data.bad_email)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .expect(await page.msg_CreateAccountError01.exists).notOk()
+        .takeScreenshot()
+
+    await t
+        //Leave Email address empty and click on 'Create an account' 
+        .click(page.btn_CreateAccount)
+        
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.exists).ok()
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+
+    await t 
+        //Writing the Email
+        .typeText(page.txt_RegisteredEmail, data.registeredEmail, {replace: true})
+        .expect(page.txt_RegisteredEmail.value).eql(data.registeredEmail)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .expect(await page.msg_CreateAccountError01.exists).notOk()
+        .takeScreenshot()
+
+
+    await t
+        //Leave Email address empty and click on 'Create an account' 
+        .click(page.btn_CreateAccount)
+        
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.exists).ok()
+        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
+    
+    await t
+        //Removing the Email and writting the Password
+        .click(page.txt_RegisteredEmail)
+        .pressKey('ctrl+a delete')
+        .typeText(page.txt_RegisteredPassword, data.password)
+        .expect(page.txt_RegisteredPassword.value).eql(data.password)
+        .click(page.btn_SignIn)
+
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .expect(await page.msg_CreateAccountError01.exists).notOk()
+        .takeScreenshot()
+
+    await t
+        //Leave Email address empty and click on 'Create an account' 
+        .click(page.btn_CreateAccount)
+        
+    await t
+        //Expecting an error message
+        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.exists).ok()
+        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.exists).ok()
+        .takeScreenshot()
 });
