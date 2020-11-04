@@ -9,7 +9,10 @@ class Page
         this.bnr_Women = Selector('#block_top_menu > ul > li:nth-child(1) > a');
         this.bnr_Dresses = Selector('#block_top_menu > ul > li:nth-child(2) > a');
         this.bnr_Tshirts = Selector('#block_top_menu > ul > li:nth-child(3) > a');
-        
+        this.lnk_Logo = Selector('#header_logo > a > img');
+        this.txt_SearchBox = Selector('#search_query_top');
+        this.btn_SearchIcon = Selector('#searchbox > button');
+        this.msg_NoResults = Selector('#center_column > h1');
         
         //PAGE: AUTHENTICATION
         this.msg_CreateAccountError01 = Selector('#create_account_error > ol > li');
