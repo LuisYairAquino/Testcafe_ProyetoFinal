@@ -1,12 +1,15 @@
 import page from './POM';
 import { data } from './data';
+import { constants } from './constants';
 import { ClientFunction } from 'testcafe';
+import { Selector } from 'testcafe';
 
 fixture('Performing Tests for Home Module')
     .page ('http://automationpractice.com');
 
 //VARIABLES
-let getLocation
+let getLocation;
+let counter = 0;
 
 //TEST 01
 test('Validate each link in Banner takes to a different page',async t =>
@@ -18,7 +21,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Validating the url belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).notContains('id_category=')
+        .expect(getLocation()).notContains(constants.url_categories)
 
 
     await t
@@ -28,7 +31,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Validating the url belongs to WOMENS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=3')
+        .expect(getLocation()).contains(constants.url_women)
 
 
     await t
@@ -38,7 +41,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Validating the url belongs to DRESSES Page
          getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=8')
+        .expect(getLocation()).contains(constants.url_dresses)
 
 
     await t
@@ -48,7 +51,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Validating the url belongs to TSHIRTS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=5')
+        .expect(getLocation()).contains(constants.url_tshirt)
 
 });
 
@@ -110,7 +113,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).notContains('id_category=')
+        .expect(getLocation()).notContains(constants.url_categories)
 
 
     //CHECKING FROM WOMENS PAGE
@@ -121,7 +124,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to WOMENS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=3')
+        .expect(getLocation()).contains(constants.url_women)
 
     await t
         //Clicking in the Logo
@@ -130,7 +133,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).notContains('id_category=')
+        .expect(getLocation()).notContains(constants.url_categories)
 
 
     //CHECKING FROM DRESSES PAGE
@@ -141,7 +144,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to DRESSES Page
          getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=8')
+        .expect(getLocation()).contains(constants.url_dresses)
 
     await t
         //Clicking in the Logo
@@ -150,7 +153,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).notContains('id_category=')
+        .expect(getLocation()).notContains(constants.url_categories)
 
 
     //CHECKING FROM TSHIRTS PAGE
@@ -161,7 +164,7 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to TSHIRTS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).contains('id_category=5')
+        .expect(getLocation()).contains(constants.url_tshirt)
 
     await t
         //Clicking in the Logo
@@ -170,11 +173,11 @@ test('Test logo takes to home page', async t =>
         //Validating the url belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
-        .expect(getLocation()).notContains('id_category=')
+        .expect(getLocation()).notContains(constants.url_categories)
 });
 
 //TEST 04
-test('Perform search Inexistent Item', async t =>
+test('Perform search with Non-Existing Item', async t =>
 {
     await t
         //Maximizing the Screen
@@ -182,24 +185,67 @@ test('Perform search Inexistent Item', async t =>
 
     await t
         //Entering an Invalid Search Term and click Search Icon
-        .typeText(page.txt_SearchBox,data.inExistentItem)
+        .typeText(page.txt_SearchBox,data.nonExistingItem)
         .click(page.btn_SearchIcon)
 
     await t
+        //Expect an error indicatign that there are no results
         .expect(await page.msg_NoResults.exists).ok()
-    
-  //  await t
-        //.expect(Selector('#center_column > h1').innerText).eql('you didn\'t tell me who you are.')
-        //console.log ( page.msg_NoResults.innerText)
-        //.eql('No results were found for your search \" ' + data.inExistentItem + '\"')
-        //.expect(page.msg_NoResults.innerText).eql(data.firstName + ' ' + data.lastName)
-
-
 });
 
 //TEST 05
-test('Perform search good Item', async t =>
+test('Perform search with Existing Items', async t =>
 {
+    await t
+        //Maximizing the Screen
+        .maximizeWindow()
 
+    await t
+        //Entering an Valid Search Term and click Search Icon
+        .typeText(page.txt_SearchBox,data.existingItem01)
+        .click(page.btn_SearchIcon)
+
+    await t
+        .takeScreenshot()
+
+        counter = await Selector('#center_column > ul > li').count;
+        //counter = page.msc_ResultsArea.count;
+
+    await t
+        //Validating the Total Count is 1
+        .expect(counter).eql(constants.int_expect001);
+
+
+    await t
+        .wait(3000)
+
+    await t
+        //Entering an Valid Search Term and click Search Icon
+        .typeText(page.txt_SearchBox,data.existingItem02, {replace: true})
+        .click(page.btn_SearchIcon)
+
+    await t
+        .takeScreenshot()
+
+        counter= await Selector('#center_column > ul > li').count;
+        //counter = page.msc_ResultsArea.count;
+
+    await t
+        //Validating the Total Count is 7
+        .expect(counter).eql(constants.int_expect007);
+
+
+
+        /*
+const smthg = Selector('.smthg');
+t.expect(smthg.count).eql(3);
+
+const osCount = Selector('.column.col-2 label').count;
+await t.expect(osCount).eql(3);
+
+const iframeAmount = await Selector('#leader-iframes iframe').count;
+console.log('LeaderElection(' + methodType + ') still no success (' + iframeAmount + ' iframes left)');
+
+        */
 
 });

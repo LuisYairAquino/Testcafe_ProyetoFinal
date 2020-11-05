@@ -1,5 +1,6 @@
 import page from './POM';
 import { data } from './data';
+import { constants } from './constants';
 
 fixture('Performing Tests for Account Module')
     .page ('http://automationpractice.com');
@@ -18,7 +19,7 @@ test('Leave Email address empty and click on Create an account, expect an error'
     
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
         .takeScreenshot()
 });
@@ -39,7 +40,7 @@ test('Enter an Invalid Email address and click on Create an account, expect an e
     
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
         .takeScreenshot()
 });
@@ -63,7 +64,7 @@ test('Create an account without filling any required field, expect multiple erro
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError02.innerText).eql("There are 8 errors")
+        .expect(await page.msg_CreateAccountError02.innerText).eql(constants.msg_eigthErrors)
         .expect(await page.msg_CreateAccountError02.exists).ok()
         .takeScreenshot()
 });
@@ -154,7 +155,7 @@ test('Try to log into an account, usign invalid values', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -166,7 +167,7 @@ test('Try to log into an account, usign invalid values', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -178,7 +179,7 @@ test('Try to log into an account, usign invalid values', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_pswdRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -192,7 +193,7 @@ test('Try to log into an account, usign invalid values', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -228,7 +229,7 @@ test('Trigger the errors on Sign In Page', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .expect(await page.msg_CreateAccountError01.exists).notOk()
         .takeScreenshot()
@@ -239,9 +240,9 @@ test('Trigger the errors on Sign In Page', async t =>
     
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -253,7 +254,7 @@ test('Trigger the errors on Sign In Page', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .expect(await page.msg_CreateAccountError01.exists).notOk()
         .takeScreenshot()
@@ -264,9 +265,9 @@ test('Trigger the errors on Sign In Page', async t =>
         
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 
@@ -278,7 +279,7 @@ test('Trigger the errors on Sign In Page', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_pswdRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .expect(await page.msg_CreateAccountError01.exists).notOk()
         .takeScreenshot()
@@ -290,9 +291,9 @@ test('Trigger the errors on Sign In Page', async t =>
         
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
-        .expect(await page.msg_CreateAccountError03.innerText).eql("Password is required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_pswdRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
     
@@ -306,7 +307,7 @@ test('Trigger the errors on Sign In Page', async t =>
 
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .expect(await page.msg_CreateAccountError01.exists).notOk()
         .takeScreenshot()
@@ -317,9 +318,9 @@ test('Trigger the errors on Sign In Page', async t =>
         
     await t
         //Expecting an error message
-        .expect(await page.msg_CreateAccountError01.innerText).eql("Invalid email address.")
+        .expect(await page.msg_CreateAccountError01.innerText).eql(constants.msg_invalidEmail)
         .expect(await page.msg_CreateAccountError01.exists).ok()
-        .expect(await page.msg_CreateAccountError03.innerText).eql("An email address required.")
+        .expect(await page.msg_CreateAccountError03.innerText).eql(constants.msg_emaiRequired)
         .expect(await page.msg_CreateAccountError03.exists).ok()
         .takeScreenshot()
 });
