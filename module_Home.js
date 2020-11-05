@@ -56,7 +56,7 @@ test('Validate each link in Banner takes to a different page',async t =>
 });
 
 //TEST 02
-test('Testing Banner links has same order in all pages', async t =>
+test('Testing Banner links has the same order in all pages', async t =>
 {
     await t
         //Maximizing the Screen
@@ -104,7 +104,7 @@ test('Testing Banner links has same order in all pages', async t =>
 });
 
 //TEST 03
-test('Test logo takes to home page', async t =>
+test('Test that the logo takes to home page', async t =>
 {
     await t
         //Maximizing the Screen
