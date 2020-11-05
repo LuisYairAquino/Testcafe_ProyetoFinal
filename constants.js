@@ -2,7 +2,7 @@
 let constants = {
     msg_invalidEmail:           "Invalid email address.",
     msg_eigthErrors:            "There are 8 errors",
-    msg_emaiRequired:           "An email address required.",
+    msg_emailRequired:           "An email address required.",
     msg_pswdRequired:           "Password is required.",
     url_categories:             "id_category=",
     url_women:                  "id_category=3",
