@@ -298,7 +298,7 @@ test('Trigger the errors on Sign In Page', async t =>
         .takeScreenshot()
     
     await t
-        //Removing the Email and writting the Password
+        //Removing the Email and writing the Password
         .click(page.txt_RegisteredEmail)
         .pressKey('ctrl+a delete')
         .typeText(page.txt_RegisteredPassword, data.password)
