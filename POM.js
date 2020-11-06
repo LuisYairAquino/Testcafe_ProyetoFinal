@@ -44,6 +44,15 @@ class Page
         //PAGE: MY ACCOUNT
         this.NavBar_Username            = Selector('#header > div.nav > div > div > nav > div:nth-child(1) > a > span');
         this.NavBar_SignOut             = Selector('#header > div.nav > div > div > nav > div:nth-child(2) > a');
+
+        //PAGE: WOMEN
+        this.lnk_Dresses                = Selector('#subcategories > ul > li:nth-child(2) > div.subcategory-image > a > img');
+        this.lnk_Tshirts                = Selector('a').withText('T-shirts');
+
+        //PAGE: DRESSES
+        this.lnk_ItemDescription        = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a')
+        this.lnk_ItemAddtoCart          = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span')
+        this.lnk_ItemMore               = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span')
     }
 }
 

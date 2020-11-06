@@ -115,7 +115,6 @@ test('Test that the logo takes to home page', async t =>
     await t
         .expect(getLocation()).notContains(constants.url_categories)
 
-
     //CHECKING FROM WOMENS PAGE
     await t
         //Navigating to WOMENS page
@@ -215,7 +214,6 @@ test('Perform search with Existing Items', async t =>
         //Validating the Total Count is 1
         .expect(counter).eql(constants.int_expect001);
 
-
     await t
         .wait(3000)
 
@@ -227,7 +225,8 @@ test('Perform search with Existing Items', async t =>
     await t
         .takeScreenshot()
 
-        counter= await Selector('#center_column > ul > li').count;
+        //Get total count of elements in Results Area
+        counter = await Selector('#center_column > ul > li').count;
         //counter = page.msc_ResultsArea.count;
 
     await t
