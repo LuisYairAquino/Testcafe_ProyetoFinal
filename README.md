@@ -54,9 +54,14 @@ To execute the file "test.js" in Chrome, open the Command Line navigate to Deskt
 For Firefox you can type `$ testcafe chrome new.js`
  
 **4.- Installing [Git](https://git-scm.com/downloads)** based on your Operating System, as well as the version you'll like to have. Follow the instructions displayed by the installer until the installation is successfully completed.
-Once the installation is completed, locate on your desktop a Direct Access called Git Bash and double click on it to launch, navigate to a folder where you'd like to download my repo, create a folder caller repo and..... wait!!!, we forgot to configure Git, we'll need your user name and email, (if you do not have a GitHub account, go get one and then come back)... ready. open Git Bash again and type `$ git config --global user.name "YOUR_GIT_USERNAME"` press enter, then `$ git config --global user.email "EMAIL_IN_GIT"`, press enter.  
-**Cloning the repo**
-To clone my repo, open Git Bash and type `$ git clone https://github.com/pedrobarragan30/Testcafe_Bootcamp`
+Once the installation is completed, locate on your desktop a Direct Access called Git Bash and double click on it to launch, navigate to a folder where you'd like to download my repo, create a folder caller repo and..... wait!!!, we forgot to configure Git, we'll need your user name and email, (if you do not have a GitHub account, go get one and then come back)... ready.  
+Open Git Bash again and type  
+`$ git config --global user.name "YOUR_GIT_USERNAME"`  
+press enter, then  
+`$ git config --global user.email "EMAIL_IN_GIT"`, press enter.  
+**Cloning the repo**  
+To clone my repo, open Git Bash and type  
+`$ git clone https://github.com/pedrobarragan30/Testcafe_ProyetoFinal`
 
 **5.- To run a Script** (let's try to run practica3.js), open Visual Studio Code, in the main page locate a link that reads `Open folder...` and locate the repo that you have just cloned; locate at the extreme left bar the "Explorer" icon, click on it and search for "Testcafe" folder and expand it. Now you are inside the directory that contains the practica3.js file.
 Locate at the menu bar the option "Terminal", expand it and select "New Terminal" this should open a new area at bottom of Visual Studio Code, in the command prompt write the next:
@@ -67,16 +72,16 @@ Locate at the menu bar the option "Terminal", expand it and select "New Terminal
 * _To run a script and record video, use the command_ `$ testcafe <BrowserName> <ScriptToRun> --video Videos`
 * _To run a script and generate a report, use the command_ `$ testcafe <BrowserName> <ScriptToRun> --reporter html:Reports/<ReportName>.html`
 * _To run a script without taking screenshots, use the command_ `$ testcafe <BrowserName> <ScriptToRun> --disable-screenshots` 
-* _To run a test from a script, use the command_ `$ testcafe <BrowserName> <ScriptToRun> -t "<TestToRun>"` 
-***NOTE 1: You can combine the modifiers, now you are ready to have fun!*** :smile:
+* _To run a test from a script, use the command_ `$ testcafe <BrowserName> <ScriptToRun> -t "<TestToRun>"`  
+***NOTE 1: You can combine the modifiers, now you are ready to have fun!*** :smile:  
 ***NOTE 2: BrowserName can be firefox or chrome***
 
 ## Folder Structure
 Testcafe_ProyetoFinal (Main folder)  
 -> Documentation (Subfolder with Documentation files)  
--> Reports (Subfolder with Reports)
--> Videos (Subfolder with Videos recorded)
--> screenshots (Subfolder to store the Screenshots)
+-> Reports (Subfolder with Reports)  
+-> Videos (Subfolder with Videos recorded)  
+-> screenshots (Subfolder to store the Screenshots tht is created once a script is executed)
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
