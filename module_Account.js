@@ -84,7 +84,7 @@ test('Successfully create an account', async t =>
         console.log(data.email);
         
     await t 
-        //Validate that email is  prefilled and it's editable
+        //Validate that email is prefilled and it's editable
         .expect(page.txt_frm_email.value).contains(data.email)
         .expect(page.txt_frm_email.hasAttribute('readonly')).notOk()
 
