@@ -267,7 +267,7 @@ test('Select 3 Items, login and proceed to purchase', async t =>
         .click(page.btn_PAY_ByCheck)
 
     await t
-        .takeScreenshot
+        .takeScreenshot()
         //Click 'I confirm my order'
         .click(page.btn_PAY_ConfirmOrder)
         .wait(1000)

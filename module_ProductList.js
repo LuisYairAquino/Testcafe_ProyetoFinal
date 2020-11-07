@@ -24,7 +24,7 @@ test('Open Women, select Dresses, check all listed elements read Dress', async t
         //Navigating to WOMENS page
         .click(page.bnr_Women)
 
-        //Validating the url belongs to WOMENS Page
+        //Validating the URL belongs to WOMENS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_women)
@@ -89,7 +89,7 @@ test('Open Dresses, perform validations over first Item', async t =>
         //Maximizing the Screen
         .maximizeWindow()
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -98,7 +98,7 @@ test('Open Dresses, perform validations over first Item', async t =>
         //Navigating to DRESSES page
         .click(page.bnr_Dresses)
 
-        //Validating the url belongs to DRESSES Page
+        //Validating the URL belongs to DRESSES Page
          getLocation = ClientFunction(() => document.location.href);
     
     await t
@@ -115,5 +115,5 @@ test('Open Dresses, perform validations over first Item', async t =>
         //Validate Add to Cart button is visible when mouse is over the Item
         .expect(page.lnk_Item1AddtoCart.visible).ok()
         //Validate More button is visible when mouse is over the Item
-        .expect(page.lnk_Ite1mMore.visible).ok()
+        .expect(page.lnk_Item1More.visible).ok()
 });

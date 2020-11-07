@@ -18,7 +18,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Maximizing the Screen
         .maximizeWindow()
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -28,7 +28,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Navigating to WOMENS page
         .click(page.bnr_Women)
 
-        //Validating the url belongs to WOMENS Page
+        //Validating the URL belongs to WOMENS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_women)
@@ -38,7 +38,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Navigating to DRESSES page
         .click(page.bnr_Dresses)
 
-        //Validating the url belongs to DRESSES Page
+        //Validating the URL belongs to DRESSES Page
          getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_dresses)
@@ -48,7 +48,7 @@ test('Validate each link in Banner takes to a different page',async t =>
         //Navigating to TSHIRTS page
         .click(page.bnr_Tshirts)
 
-        //Validating the url belongs to TSHIRTS Page
+        //Validating the URL belongs to TSHIRTS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_tshirt)
@@ -110,7 +110,7 @@ test('Test that the logo takes to home page', async t =>
         //Maximizing the Screen
         .maximizeWindow()
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -120,7 +120,7 @@ test('Test that the logo takes to home page', async t =>
         //Navigating to WOMENS page
         .click(page.bnr_Women)
 
-        //Validating the url belongs to WOMENS Page
+        //Validating the URL belongs to WOMENS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_women)
@@ -129,7 +129,7 @@ test('Test that the logo takes to home page', async t =>
         //Clicking in the Logo
         .click(page.lnk_Logo)
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -140,7 +140,7 @@ test('Test that the logo takes to home page', async t =>
         //Navigating to DRESSES page
         .click(page.bnr_Dresses)
 
-        //Validating the url belongs to DRESSES Page
+        //Validating the URL belongs to DRESSES Page
          getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_dresses)
@@ -149,7 +149,7 @@ test('Test that the logo takes to home page', async t =>
         //Clicking in the Logo
         .click(page.lnk_Logo)
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -160,7 +160,7 @@ test('Test that the logo takes to home page', async t =>
         //Navigating to TSHIRTS page
         .click(page.bnr_Tshirts)
 
-        //Validating the url belongs to TSHIRTS Page
+        //Validating the URL belongs to TSHIRTS Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).contains(constants.url_tshirt)
@@ -169,7 +169,7 @@ test('Test that the logo takes to home page', async t =>
         //Clicking in the Logo
         .click(page.lnk_Logo)
 
-        //Validating the url belongs to HOME Page
+        //Validating the URL belongs to HOME Page
         getLocation = ClientFunction(() => document.location.href);
     await t
         .expect(getLocation()).notContains(constants.url_categories)
@@ -188,7 +188,7 @@ test('Perform search with Non-Existing Item', async t =>
         .click(page.btn_SearchIcon)
 
     await t
-        //Expect an error indicatign that there are no results
+        //Expect an error indicating that there are no results
         .expect(await page.msg_NoResults.exists).ok()
 });
 
@@ -232,19 +232,4 @@ test('Perform search with Existing Items', async t =>
     await t
         //Validating the Total Count is 7
         .expect(counter).eql(constants.int_expect007);
-
-
-
-        /*
-const smthg = Selector('.smthg');
-t.expect(smthg.count).eql(3);
-
-const osCount = Selector('.column.col-2 label').count;
-await t.expect(osCount).eql(3);
-
-const iframeAmount = await Selector('#leader-iframes iframe').count;
-console.log('LeaderElection(' + methodType + ') still no success (' + iframeAmount + ' iframes left)');
-
-        */
-
 });
