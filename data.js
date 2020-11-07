@@ -15,7 +15,7 @@ let data = {
     mobilePhone:        "219892828492",
     alias :             "My Home",
     registeredEmail:    'dummy.nie@mailinator.com',
-    nonExistingItem:     'Dressing',
+    nonExistingItem:    'Dressing',
     existingItem01:     'Blouse',
     existingItem02:     'Dress'
 }

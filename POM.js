@@ -49,10 +49,38 @@ class Page
         this.lnk_Dresses                = Selector('#subcategories > ul > li:nth-child(2) > div.subcategory-image > a > img');
         this.lnk_Tshirts                = Selector('a').withText('T-shirts');
 
-        //PAGE: DRESSES
-        this.lnk_ItemDescription        = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a')
-        this.lnk_ItemAddtoCart          = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span')
-        this.lnk_ItemMore               = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span')
+        //PAGE: RESULTS AREA
+        this.are_Item1                  = Selector('#center_column > ul > li:nth-child(1)')
+        this.lnk_Item1Description       = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > h5 > a')
+        this.lnk_Item1AddtoCart         = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span')
+        this.lnk_Item1More              = Selector('#center_column > ul > li:nth-child(1) > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span')
+        this.are_Item2                  = Selector('#center_column > ul > li:nth-child(2)')
+        this.lnk_Item2Description       = Selector('#center_column > ul > li:nth-child(2) > div > div.right-block > h5 > a')
+        this.lnk_Item2AddtoCart         = Selector('#center_column > ul > li:nth-child(2) > div > div.right-block > div.button-container > a.button.ajax_add_to_cart_button.btn.btn-default > span')
+        this.lnk_Item2More              = Selector('#center_column > ul > li:nth-child(2) > div > div.right-block > div.button-container > a.button.lnk_view.btn.btn-default > span')
+        this.btn_ContinueShopping       = Selector('#layer_cart > div > div > div > span > span')
+        this.btn_ProceedtoCheckout      = Selector('#layer_cart > div > div > div > a > span')
+
+        //PAGE: SUMMARY
+        this.are_SUM_OrderDetail        = Selector('#order-detail-content')
+        this.btn_SUM_ProceedtoCheckout  = Selector('#center_column > p > a > span')
+
+        //PAGE: ADDRESS
+        this.btn_ADS_ProceedtoCheckout  = Selector('#center_column > form > p > button > span')
+
+        //PAGE: SHIPPING
+        this.chk_SHP_TermsofService     = Selector('#cgv')
+        this.msg_SHP_AgreeTerms         = Selector('#order > div.fancybox-overlay.fancybox-overlay-fixed > div > div > div > div > p')
+        this.msg_SHP_CloseAgreeTerms    = Selector('#order > div.fancybox-overlay.fancybox-overlay-fixed > div > div > a')
+        this.btn_SHP_ProceedtoCheckout  = Selector('#form > p > button > span')
+
+        //PAGE: PAYMENT
+        this.are_PAY_OrderDetail        = Selector('#order-detail-content')
+        this.btn_PAY_ByBank             = Selector('#HOOK_PAYMENT > div:nth-child(1) > div > p > a > span')
+        this.btn_PAY_ByCheck            = Selector('#HOOK_PAYMENT > div:nth-child(2) > div > p > a > span')
+        this.btn_PAY_ConfirmOrder       = Selector('#cart_navigation > button > span')
+        this.msg_PAY_OrderComplete      = Selector('#center_column > p.alert.alert-success')
+        this.txt_PAY_OrderComplete      = Selector('#center_column > div > p > strong')
     }
 }
 
