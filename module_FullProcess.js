@@ -116,7 +116,7 @@ test('Login, select 3 Items, login and proceed to purchase', async t =>
         .expect(page.NavBar_Username.innerText).eql(data.firstName + ' ' + data.lastName)
         .expect(page.NavBar_Username.exists).ok()
         .takeScreenshot()
-        //Click 'Procedd to Checkout' in Address page
+        //Click 'Proceed to Checkout' in Address page
         .click(page.btn_ADS_ProceedtoCheckout)
     
     await t
@@ -249,7 +249,7 @@ test('Select 3 Items, login and proceed to purchase', async t =>
         .expect(page.NavBar_Username.innerText).eql(data.firstName + ' ' + data.lastName)
         .expect(page.NavBar_Username.exists).ok()
         .takeScreenshot()
-        //Click 'Procedd to Checkout' in Address page
+        //Click 'Proceed to Checkout' in Address page
         .click(page.btn_ADS_ProceedtoCheckout)
     
     await t
