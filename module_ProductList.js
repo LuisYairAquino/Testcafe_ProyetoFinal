@@ -63,8 +63,8 @@ test('Hover Women, Hover top, select Tshirts, check all listed elements read Tsh
         //Click on T-shirt links under WOMEN section
         .click(page.lnk_Tshirts)
 
-    //Get total count of elements in Results Area
-    counter = await Selector('#center_column > ul > li').count;
+        //Get total count of elements in Results Area
+        counter = await Selector('#center_column > ul > li').count;
     await t
         .takeElementScreenshot('#center_column > ul')
         //Validating the Total Count is 1
@@ -94,7 +94,7 @@ test('Open Dresses, perform validations over first Item', async t =>
     await t
         .expect(getLocation()).notContains(constants.url_categories)
 
-        await t
+    await t
         //Navigating to DRESSES page
         .click(page.bnr_Dresses)
 
@@ -102,22 +102,18 @@ test('Open Dresses, perform validations over first Item', async t =>
          getLocation = ClientFunction(() => document.location.href);
     
     await t
-        //Take a screenshot from the current Item in the Results area
-        .takeElementScreenshot('#center_column > ul > li:nth-child(1)')
+        //Take a screenshot from the first Item in the Results area
+        .takeElementScreenshot(page.are_Item1)
         //Validate Add to Cart button is not visible
-        .expect(page.lnk_ItemAddtoCart.visible).notOk()
+        .expect(page.lnk_Item1AddtoCart.visible).notOk()
         //Validate More button is not visible
-        .expect(page.lnk_ItemMore.visible).notOk()
-        //Hovering over the current Item in the Results area
-        .hover('#center_column > ul > li:nth-child(1)')
-        //Take a screenshot from the current Item in the Results area
-        .takeElementScreenshot('#center_column > ul > li:nth-child(1)')
+        .expect(page.lnk_Item1More.visible).notOk()
+        //Hovering over the first Item in the Results area
+        .hover(page.are_Item1)
+        //Take a screenshot from the first Item in the Results area
+        .takeElementScreenshot(page.are_Item1)
         //Validate Add to Cart button is visible when mouse is over the Item
-        .expect(page.lnk_ItemAddtoCart.visible).ok()
+        .expect(page.lnk_Item1AddtoCart.visible).ok()
         //Validate More button is visible when mouse is over the Item
-        .expect(page.lnk_ItemMore.visible).ok()
+        .expect(page.lnk_Ite1mMore.visible).ok()
 });
-/*
-Open Dresses, Compare Dresses
-Open Dresses, Remove Dresses from compare
- */
