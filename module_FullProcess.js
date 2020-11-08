@@ -31,7 +31,7 @@ test('Login, select 3 Items, login and proceed to purchase', async t =>
         .takeScreenshot()
 
 
-        await t
+    await t
         //Navigating to WOMENS page
         .click(page.bnr_Women)
 
@@ -84,7 +84,7 @@ test('Login, select 3 Items, login and proceed to purchase', async t =>
         .click(page.btn_ContinueShopping)
         .wait(1000)
 
-     await t
+    await t
         //Navigating to TSHIRTS page
         .click(page.bnr_Tshirts)
 
