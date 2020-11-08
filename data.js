@@ -14,7 +14,7 @@ let data = {
     country:            "United States",
     mobilePhone:        "219892828492",
     alias :             "My Home",
-    registeredEmail:    'dummy.nie@mailinator.com',
+    registeredEmail:    'dummy.ga4@mailinator.com',
     nonExistingItem:    'Dressing',
     existingItem01:     'Blouse',
     existingItem02:     'Dress'
