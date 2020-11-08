@@ -50,8 +50,10 @@ test('My first test', async t => {
     // Test code
 });
 ```
-To execute the file "test.js" in Chrome, open the Command Line navigate to Desktop, and type `$ testcafe chrome new.js`  
-For Firefox you can type `$ testcafe chrome new.js`
+To execute the file "test.js" in Chrome, open the Command Line navigate to Desktop, and type  
+`$ testcafe chrome new.js`  
+For Firefox you can type  
+`$ testcafe chrome new.js`
  
 **4.- Installing [Git](https://git-scm.com/downloads)** based on your Operating System, as well as the version you'll like to have. Follow the instructions displayed by the installer until the installation is successfully completed.
 Once the installation is completed, locate on your desktop a Direct Access called Git Bash and double click on it to launch, navigate to a folder where you'd like to download my repo, create a folder caller repo and..... wait!!!, we forgot to configure Git, we'll need your user name and email, (if you do not have a GitHub account, go get one and then come back)... ready.  
