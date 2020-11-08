@@ -219,9 +219,9 @@ test('Try to log into an account, using invalid values', async t =>
 test('Trigger the errors on Sign In Page', async t =>
 {
     await t
-    //Maximizing the Screen
-    .maximizeWindow()
-    .click(page.lnk_SignIn)
+        //Maximizing the Screen
+        .maximizeWindow()
+        .click(page.lnk_SignIn)
 
     await t
         //Click Sing In without entering Email and Password
